@@ -1,39 +1,45 @@
 # CoinGecko Crypto API Wrapper
 
-โปรเจกต์นี้เป็น API Wrapper สำหรับดึงข้อมูลคริปโตเคอเรนซีจาก CoinGecko โดยใช้ NestJS และ TypeScript ออกแบบมาเพื่อให้อ่านข้อมูลได้ง่ายผ่าน Postman หรือเชื่อมต่อกับระบบอื่น
+This project is an API Wrapper for fetching cryptocurrency data from CoinGecko using NestJS and TypeScript. it is designed for ease of use via Postman or for integration with other systems.
 
-## ความต้องการของระบบ
+## System Requirements
 
-- Node.js (แนะนำ v18 ขึ้นไป)
+- Node.js (v18 or higher recommended)
 - npm
 
-## การติดตั้ง
+## Installation
 
-1. เข้าไปยังโฟลเดอร์โปรเจกต์
-2. ติดตั้ง dependencies:
+1. Navigate to the project folder
+2. Install dependencies:
    ```bash
    npm install
    ```
 
-## การเริ่มทำงานของระบบ
+## Local Development
 
-เริ่มต้นการทำงานของเซิร์ฟเวอร์ในโหมดพัฒนา (Development mode):
+Run the server locally for development or testing:
 ```bash
 npm run start:dev
 ```
-เซิร์ฟเวอร์จะทำงานอยู่ที่: http://localhost:3000
+The system will be available at: http://localhost:3000
 
-## การใช้งาน API
+## Production API
 
-### ดึงข้อมูลคริปโตเคอเรนซี (Get Crypto Data)
+Alternatively, you can access the live API directly at:
+https://geckocoinapiwrapper.vercel.app
 
-ใช้สำหรับดึงข้อมูลราคาและสถิติพื้นฐานของคริปโตเคอเรนซีโดยใช้ ID จาก CoinGecko
+## API Usage
+
+### Get Crypto Data
+
+Fetch price and basic statistics of a cryptocurrency using its CoinGecko ID.
 
 - Endpoint: `/crypto/:id`
 - Method: `GET`
-- URL ตัวอย่าง: `http://localhost:3000/crypto/bitcoin`
+- Example URL (Local): http://localhost:3000/crypto/bitcoin
+- Example URL (Production): https://geckocoinapiwrapper.vercel.app/crypto/bitcoin
 
-### ตัวอย่างข้อมูลที่ส่งกลับ (Response Format)
+### Data Response Format
 
 ```json
 {
@@ -49,8 +55,8 @@ npm run start:dev
 }
 ```
 
-## โครงสร้างโปรเจกต์ที่สำคัญ
+## Important Project Structure
 
-- `src/crypto/crypto.controller.ts`: จัดการเส้นทาง API (Route)
-- `src/crypto/crypto.service.ts`: จัดการตรรกะการดึงข้อมูลจาก CoinGecko API
-- `src/crypto/crypto.module.ts`: รวบรวมการทำงานของโมดูลคริปโต
+- `src/crypto/crypto.controller.ts`: Manages API routing
+- `src/crypto/crypto.service.ts`: Handles data fetching logic from CoinGecko API
+- `src/crypto/crypto.module.ts`: Integrates the crypto module components
